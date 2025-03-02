@@ -11,7 +11,7 @@ def main():
     try:
         subject, course_number = course.split(" ")
     except ValueError:
-        print("Invalid format! Use format: SUBJECT COURSE_NUMBER (e.g., CS 225)")
+        print("Invalid format! Use format: SUBJECT COURSE_NUMBER (e.g., CS 374)")
         return
 
     # Fetch professor data
