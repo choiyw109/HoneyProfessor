@@ -6,7 +6,7 @@ def main():
     # Get user input
     year = input("Enter the academic year (e.g., 2025): ")
     term = input("Enter the semester (e.g., spring, fall): ").lower()
-    course = input("Enter the course (e.g., MATH 225): ").strip()
+    course = input("Enter the course (e.g., CS 374): ").strip()
 
     try:
         subject, course_number = course.split(" ")
