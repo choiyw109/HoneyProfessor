@@ -1,5 +1,5 @@
 from course_explorer import get_professors
-
+from grade_disparity import calculate_grade_disparity
 def main():
     print("Welcome to UIUC Auto-RateMyProfessor Course Picker!")
 
@@ -22,7 +22,9 @@ def main():
     else:
         print(f"Professors teaching {course} in {term} {year}:")
         for prof in professors:
-            print(f"- {prof}")
+            print(f"- {prof}: {calculate_grade_disparity(prof)}")
+    
+    print(calculate_grade_disparity("Golecki, Thomas F"))
 
 if __name__ == "__main__":
     main()
