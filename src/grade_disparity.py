@@ -40,13 +40,15 @@ def calculate_grade_disparity(professor_name: str):
     
     # Filter courses for the given professor, handling null values
     professor_courses = df[df['Primary Instructor'].notna() & df['Primary Instructor'].str.startswith(professor_name)]
-    
+
     if len(professor_courses) == 0:
-        print(f"No courses found for professor {professor_name}")
-        return
+        return None, professor_name
     
+
+    output_name = ""
     # Print each course row and accumulate grade counts
     for _, course in professor_courses.iterrows():
+        output_name = course['Primary Instructor']
         course_grade_counts = {
             'A+': 0, 'A': 0, 'A-': 0,
             'B+': 0, 'B': 0, 'B-': 0,
@@ -65,6 +67,6 @@ def calculate_grade_disparity(professor_name: str):
         course_gpa = calculate_gpa(course_grade_counts)
     
     overall_gpa = calculate_gpa(grade_counts)
-    return overall_gpa
+    return overall_gpa, output_name
 
 # print(calculate_grade_disparity("Tsokaros, A"))

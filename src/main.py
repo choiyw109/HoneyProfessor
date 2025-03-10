@@ -1,5 +1,6 @@
 from course_explorer import get_professors
 from grade_disparity import calculate_grade_disparity
+# from rate_my_professor import RMP_prof_search
 def main():
     print("Welcome to UIUC Auto-RateMyProfessor Course Picker!")
 
@@ -22,9 +23,13 @@ def main():
     else:
         print(f"Professors teaching {course} in {term} {year}:")
         for prof in professors:
-            print(f"- {prof}: {calculate_grade_disparity(prof)}")
+            avg_gpa_prof, prof_name = calculate_grade_disparity(prof)
+            if(avg_gpa_prof != None):
+                print(f"- Average GPA of {prof_name}: {avg_gpa_prof}")
+                # RMP_prof_search(prof_name)
+            
     
-    print(calculate_grade_disparity("Golecki, Thomas F"))
+    
 
 if __name__ == "__main__":
     main()
